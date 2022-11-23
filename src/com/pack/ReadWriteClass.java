@@ -60,7 +60,7 @@ public class ReadWriteClass {
 
 		catch(FileNotFoundException e)
 		{
-			System.out.println("error in finding file: "+e.toString());
+			System.out.println("error in finding the file: "+e.toString());
 
 		}
 		if(filePath.contains("student.txt"))
@@ -79,7 +79,7 @@ public class ReadWriteClass {
 			String[] seperated;
 			
 			seperated= line.split(" ");
-			std.setId(seperated[0]) ;
+			std.setId(Integer.parseInt(seperated[0]) ) ;
 			std.setFirstName(seperated[1]); 
 			std.setLastName(seperated[2] );
 			std.setDepartment(seperated[3] );
@@ -108,7 +108,7 @@ public class ReadWriteClass {
 				String[] seperated;
 				
 				seperated= line.split(" ");
-				prof.setId(seperated[0]) ;
+				prof.setId(Integer.parseInt(seperated[0]) ) ;
 				prof.setFirstName(seperated[1]); 
 				prof.setLastName(seperated[2] );
 				prof.setDepartment(seperated[3] );
@@ -128,7 +128,7 @@ public class ReadWriteClass {
 	}	
 	
 	
-	public int searchPerson(String path,String searchID)
+	public int searchPerson(String path,int searchID)
 	{
 		int returnIndex=-2;
 		
@@ -139,7 +139,7 @@ public class ReadWriteClass {
 			
 			for (int i =0;i<stdArr.size() ;i++)
 			{
-			 if( stdArr.get(i).getId().contains(searchID) )
+			 if( stdArr.get(i).getId()==searchID )
 			 {
 
 				 returnIndex=i;
@@ -162,7 +162,7 @@ public class ReadWriteClass {
 			
 			for (int i =0;i<profArr.size() ;i++)
 			{
-			 if( profArr.get(i).getId().contains(searchID) )
+			 if( profArr.get(i).getId()==searchID )
 			 {
 
 				 returnIndex=i;
