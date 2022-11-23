@@ -1,6 +1,5 @@
 package com.pack;
 
-import java.beans.Expression;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -221,6 +220,33 @@ public class ReadWriteClass {
 		
 		
 	}
+	public static int generateId (ArrayList<Object> arrayGenerate,String path )
+	{
+		int generatedId=-1;
+		
+		if (path.contains("student"))
+		{
+			ArrayList<StudentModel> stdArr= (ArrayList<StudentModel>) (Object) arrayGenerate;
+			
+			int	stdSize=stdArr.size();
+			int laststdId=stdArr.get(stdArr.size() - 1).getId();
+		    generatedId = laststdId+1;
+			
+		}
+		else if(path.contains("professor"))
+		{
+			ArrayList<Professor> profArr= (ArrayList<Professor>) (Object) arrayGenerate;
+
+			int	profSize=profArr.size();
+			int lastProfId=profArr.get(profSize-1).getId();
+			 generatedId = lastProfId+1;
+			
+		}
+		
+		System.out.println("Your ID is "+ generatedId);
+		return generatedId;
+		
+	}
 	
 	
 	
@@ -242,88 +268,6 @@ public class ReadWriteClass {
 	
 	
 
-	/*
-	 * public ArrayList<Object> readMethod(String filePath) {
-	 * 
-	 * 
-	 * 
-	 * StudentModel std; Professor prof;
-	 * 
-	 * Scanner read = null; try { System.out.println("reading data.... ");
-	 * 
-	 * 
-	 * read = new Scanner(new File(filePath)); }
-	 * 
-	 * catch(FileNotFoundException e) {
-	 * System.out.println("error in finding file: "+e.toString());
-	 * 
-	 * } if(filePath.equals("student.txt")) {
-	 * ArrayList<StudentModel>arrayStudent=new ArrayList<StudentModel>();
-	 * 
-	 * 
-	 * while(read.hasNext()) { std=new StudentModel();
-	 * 
-	 * 
-	 * String line= read.nextLine(); //System.out.println("Data is : "+ line );
-	 * 
-	 * String[] seperated;
-	 * 
-	 * seperated= line.split(" "); std.setId(seperated[0]) ;
-	 * std.setFirstName(seperated[1]); std.setLastName(seperated[2] );
-	 * std.setDepartment(seperated[3] ); std.setGpa(Double.parseDouble(seperated[4])
-	 * );
-	 * 
-	 * arrayStudent.add(std); //displayStudent(std);
-	 * 
-	 * 
-	 * } return (ArrayList<Object>) (Object) arrayStudent; }
-	 * 
-	 * else if(filePath.equals("professor.txt")) {
-	 * ArrayList<Professor>arrayProfessor=new ArrayList<Professor>();
-	 * 
-	 * while(read.hasNext()) { prof=new Professor();
-	 * 
-	 * 
-	 * String line= read.nextLine(); //System.out.println("Data is : "+ line );
-	 * 
-	 * String[] seperated;
-	 * 
-	 * seperated= line.split(" "); prof.setId(seperated[0]) ;
-	 * prof.setFirstName(seperated[1]); prof.setLastName(seperated[2] );
-	 * prof.setDepartment(seperated[3] );
-	 * prof.setSalary(Double.parseDouble(seperated[4]));
-	 * 
-	 * arrayProfessor.add(prof); return (ArrayList<Object>) (Object) arrayProfessor;
-	 * 
-	 * 
-	 * }
-	 * 
-	 * }
-	 * 
-	 * return null;
-	 * 
-	 * 
-	 * }
-	 */
-	
-	
-	
-	
-	
-	
-/*	public static void displayStudent (ArrayList<StudentModel> arraySearch)
-	
-	{
-		
-		
-		  System.out.println("ID is "+std.getId() );
-		  System.out.println("first name is "+std.getFirstName() );
-		  System.out.println("second name is "+std.getLastName() );
-		
-	}
-	
-	*/
-	
 
 
 

@@ -44,11 +44,13 @@ public class TestClass  {
 						case '1':
 							try {
 								System.out.println(" Entering your Data! ");
-
-								System.out.println("Your ID ? ");
-
-								std.setId(input.nextInt());	
-
+								ArrayList<Object>arr= readWriteObject.readMethod(path);
+								
+								int genID= ReadWriteClass.generateId(arr,path);
+								std.setId(genID);
+								
+								
+								
 								System.out.println("Your First Name? "); std.setFirstName(input.next());
 								System.out.println("Your Last Name? "); std.setLastName(input.next());
 								System.out.println("Your Department ? "); std.setDepartment(input.next());
@@ -160,7 +162,10 @@ public class TestClass  {
 						case '1':
 							try {
 								System.out.println(" Entering your Data! ");
-								System.out.println("Your ID ? "); prof.setId(input.nextInt());	  
+								ArrayList<Object>arr= readWriteObject.readMethod(path);
+							int genID= ReadWriteClass.generateId(arr,path);
+								prof.setId(genID);
+								
 								System.out.println("Your First Name? "); prof.setFirstName(input.next());
 								System.out.println("Your Last Name? "); prof.setLastName(input.next());
 								System.out.println("Your Department ? "); prof.setDepartment(input.next());
